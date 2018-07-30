@@ -7,5 +7,7 @@ using System.Threading.Tasks;
 namespace ConworldBuilder.Model.Languages {
     class WordType {
         public string Name { get; set; }
+
+        public List<WordTypeProperty> Properties { get; set; }
     }
 }
