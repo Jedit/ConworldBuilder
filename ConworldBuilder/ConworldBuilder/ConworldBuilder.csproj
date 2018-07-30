@@ -69,6 +69,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Helper\IntervalType.cs" />
+    <Compile Include="Model\Languages\Language.cs" />
+    <Compile Include="Model\Languages\WordType.cs" />
+    <Compile Include="Model\Languages\WordTypeProperty.cs" />
+    <Compile Include="Model\Languages\WordTypePropertyNumberOption.cs" />
+    <Compile Include="Model\Languages\WordTypePropertyOption.cs" />
+    <Compile Include="Model\Languages\WordTypePropertyTextOption.cs" />
     <Compile Include="Model\Timeline\CalendarInterface.cs" />
     <Compile Include="Model\Timeline\TimeInterval.cs" />
     <Compile Include="Model\Timeline\TimePoint.cs" />
