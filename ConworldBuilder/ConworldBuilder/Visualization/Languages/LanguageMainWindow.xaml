@@ -39,6 +39,6 @@
             <Button Click="Button_Click">Words</Button>
             <Button x:Name="btnWordTypes" Click="BtnWordTypes_Click">Word Types</Button>
         </StackPanel>
-        <Frame x:Name="pageMain" Margin="260,0,0,0" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="pageMain" Margin="270,10,10,10" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
