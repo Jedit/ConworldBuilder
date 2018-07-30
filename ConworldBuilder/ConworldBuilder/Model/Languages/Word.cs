@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConworldBuilder.Model.Timeline;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,5 +14,7 @@ namespace ConworldBuilder.Model.Languages {
         public List<KeyValuePair<WordTypeProperty, IWordTypePropertyOption>> Properties;
 
         public string Romanization { get; set; }
+
+        public List<KeyValuePair<Definition, TimeInterval>> Definitions;
     }
 }

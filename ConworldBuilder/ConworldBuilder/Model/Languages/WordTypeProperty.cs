@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConworldBuilder.Model.Timeline;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,5 +10,7 @@ namespace ConworldBuilder.Model.Languages {
         public string Name { get; set; }
         public bool IsDefinedByDict { get; set; }
         public List<IWordTypePropertyOption> Options { get; set; }
+
+        public TimeInterval TimePeriod { get; set; }
     }
 }

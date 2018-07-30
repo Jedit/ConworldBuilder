@@ -5,11 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ConworldBuilder.Model.Languages {
-    class Language {
-        public string Name { get; set; }
+    class Definition {
+        public string ID { get; set; }
 
-        public Romanization Romanization { get; set; }
-
-        public List<Word> Words { get; set; }
+        public string Notes { get; set; }
     }
 }

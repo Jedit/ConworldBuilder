@@ -6,6 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ConworldBuilder.Model.Timeline {
+    /// <summary>
+    /// Represent period in time.
+    /// </summary>
     class TimeInterval {
         protected TimePoint start;
         protected TimePoint end;

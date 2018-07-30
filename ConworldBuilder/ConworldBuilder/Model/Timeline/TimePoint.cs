@@ -6,6 +6,15 @@ using System.Threading.Tasks;
 
 namespace ConworldBuilder.Model.Timeline {
     class TimePoint {
+        public static readonly TimePoint FUTURE = new TimePoint {
+            Day = long.MaxValue,
+            Time = int.MaxValue
+        };
+        public static readonly TimePoint PAST = new TimePoint {
+            Day = long.MinValue,
+            Time = int.MinValue
+        };
+
         protected long day;
         protected int time;
 
