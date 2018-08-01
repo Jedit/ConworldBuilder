@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConworldBuilder.Model.General;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,14 +20,24 @@ namespace ConworldBuilder.Visualization.Languages {
     public partial class LanguageMainWindow : Window {
         public LanguageMainWindow() {
             InitializeComponent();
+            if (!World.Active.Languages.Contains(Model.Languages.Language.Active)) {
+                Model.Languages.Language.Active = null;
+            }
+            if (Model.Languages.Language.Active == null) {
+                if (World.Active.Languages.Count <= 0) {
+                    World.Active.Languages.Add(new Model.Languages.Language());
+                }
+                Model.Languages.Language.Active = World.Active.Languages[0];
+            }
+            LangPager.MainWindow = this;
         }
 
         private void BtnWordTypes_Click(object sender, RoutedEventArgs e) {
-            pageMain.Source = new Uri("WordTypes.xaml", UriKind.RelativeOrAbsolute);
+            LangPager.GoTo(new WordTypes());
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
-            pageMain.Source = null;
+            LangPager.GoTo(null);
         }
     }
 }

@@ -54,8 +54,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\General\World.cs" />
+    <Compile Include="Visualization\Languages\LangPager.cs" />
     <Compile Include="Visualization\Languages\LanguageMainWindow.xaml.cs">
       <DependentUpon>LanguageMainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visualization\Languages\WordType.xaml.cs">
+      <DependentUpon>WordType.xaml</DependentUpon>
     </Compile>
     <Compile Include="Visualization\Languages\WordTypes.xaml.cs">
       <DependentUpon>WordTypes.xaml</DependentUpon>
@@ -76,6 +81,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Visualization\Languages\WordType.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Visualization\Languages\WordTypes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -92,7 +101,7 @@
     <Compile Include="Model\Languages\WordTypePropertyNumberOption.cs" />
     <Compile Include="Model\Languages\WordTypePropertyOption.cs" />
     <Compile Include="Model\Languages\WordTypePropertyTextOption.cs" />
-    <Compile Include="Model\Timeline\CalendarInterface.cs" />
+    <Compile Include="Model\Timeline\ICalendar.cs" />
     <Compile Include="Model\Timeline\TimeInterval.cs" />
     <Compile Include="Model\Timeline\TimePoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

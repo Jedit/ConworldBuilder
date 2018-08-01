@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace ConworldBuilder.Model.Timeline {
     interface ICalendar {
+        string DateIntervalSeparator { get; set; }
+
         TimePoint GetTimePoint(string timedate);
         TimePoint GetTimePoint(IEnumerable<string> timedate);
 

@@ -11,10 +11,10 @@ namespace ConworldBuilder.Model.Languages {
 
         public WordType Type { get; set; }
 
-        public List<KeyValuePair<WordTypeProperty, IWordTypePropertyOption>> Properties;
+        public List<KeyValuePair<WordTypeProperty, IWordTypePropertyOption>> Properties { get; set; }
 
         public string Romanization { get; set; }
 
-        public List<KeyValuePair<Definition, TimeInterval>> Definitions;
+        public List<KeyValuePair<Definition, TimeInterval>> Definitions { get; set; }
     }
 }

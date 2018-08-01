@@ -35,5 +35,22 @@ namespace ConworldBuilder.Model.Timeline {
                 time = value;
             }
         }
+
+        public TimePoint(long day = 0, int time = 0) {
+            Day = day;
+            Time = time;
+        }
+
+        public override string ToString() {
+            if (this.Day == PAST.Day && this.Time == PAST.Time)
+                return "Beginning";
+            if (this.Day == FUTURE.Day && this.Time == FUTURE.Time)
+                return "Forever";
+            return Day.ToString() + ":" + Time.ToString();
+        }
+
+        public string ToString(ICalendar calendar) {
+            return calendar.GetTimeDate(this);
+        }
     }
 }

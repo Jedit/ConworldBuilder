@@ -40,5 +40,19 @@ namespace ConworldBuilder.Model.Timeline {
                 type = value;
             }
         }
+
+        public TimeInterval(TimePoint start = null, TimePoint end = null, IntervalType type = IntervalType.InIn) {
+            Start = start ?? TimePoint.PAST;
+            End = end ?? TimePoint.FUTURE;
+            Type = type;
+        }
+
+        public override string ToString() {
+            return Start.ToString() + " - " + End.ToString();
+        }
+
+        public string ToString(ICalendar calendar) {
+            return Start.ToString(calendar) + calendar.DateIntervalSeparator + End.ToString(calendar);
+        }
     }
 }
