@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ConworldBuilder.Model.General;
+using ConworldBuilder.Visualization.Timeline;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,15 @@ namespace ConworldBuilder.Visualization.Languages {
         internal WordType(Model.Languages.WordType type) {
             InitializeComponent();
             Type = type;
+            this.DataContext = Type;
+            var timePicker = (UserControl)Program.ActiveCalendar.GetIntervalPicker();
+            gridTime.Children.Add(timePicker);
+            Binding binding = new Binding("TimePeriod") {
+                Mode = BindingMode.TwoWay,
+                UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged,
+                Source = Type
+            };
+            timePicker.SetBinding(UserControl.DataContextProperty, binding);
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e) {

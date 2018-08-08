@@ -54,7 +54,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\General\Program.cs" />
     <Compile Include="Model\General\World.cs" />
+    <Compile Include="Model\Timeline\BasicCalendar.cs" />
+    <Compile Include="Model\Timeline\ICalendarDatePicker.cs" />
+    <Compile Include="Model\Timeline\ICalendarIntervalPicker.cs" />
     <Compile Include="Visualization\Languages\LangPager.cs" />
     <Compile Include="Visualization\Languages\LanguageMainWindow.xaml.cs">
       <DependentUpon>LanguageMainWindow.xaml</DependentUpon>
@@ -64,6 +68,12 @@
     </Compile>
     <Compile Include="Visualization\Languages\WordTypes.xaml.cs">
       <DependentUpon>WordTypes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visualization\Timeline\BasicCalendarDatePicker.xaml.cs">
+      <DependentUpon>BasicCalendarDatePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visualization\Timeline\BasicCalendarIntervalPicker.xaml.cs">
+      <DependentUpon>BasicCalendarIntervalPicker.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -86,6 +96,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Visualization\Languages\WordTypes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visualization\Timeline\BasicCalendarDatePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visualization\Timeline\BasicCalendarIntervalPicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

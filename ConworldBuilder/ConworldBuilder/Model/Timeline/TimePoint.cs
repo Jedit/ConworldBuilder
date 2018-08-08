@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ConworldBuilder.Model.Timeline {
-    class TimePoint {
+    class TimePoint : INotifyPropertyChanged {
         public static readonly TimePoint FUTURE = new TimePoint {
             Day = long.MaxValue,
             Time = int.MaxValue
@@ -18,12 +19,15 @@ namespace ConworldBuilder.Model.Timeline {
         protected long day;
         protected int time;
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public long Day {
             get {
                 return day;
             }
             set {
                 day = value;
+                OnPropertyChanged("Day");
             }
         }
 
@@ -33,6 +37,7 @@ namespace ConworldBuilder.Model.Timeline {
             }
             set {
                 time = value;
+                OnPropertyChanged("Time");
             }
         }
 
@@ -51,6 +56,10 @@ namespace ConworldBuilder.Model.Timeline {
 
         public string ToString(ICalendar calendar) {
             return calendar.GetTimeDate(this);
+        }
+
+        public void OnPropertyChanged(string name) {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
     }
 }

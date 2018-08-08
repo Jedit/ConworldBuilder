@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ConworldBuilder.Visualization.Languages"
         mc:Ignorable="d"
-        Title="Conlangs" Height="450" Width="800">
+        Title="Conlangs" Height="570" Width="1080">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Width" Value="240"/>

@@ -16,5 +16,7 @@ namespace ConworldBuilder.Model.Languages {
         public string Romanization { get; set; }
 
         public List<KeyValuePair<Definition, TimeInterval>> Definitions { get; set; }
+
+        public bool generated { get; set; }
     }
 }

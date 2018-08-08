@@ -30,9 +30,16 @@ namespace ConworldBuilder.Model.Languages {
                 return timePeriod;
             }
             set {
+                if (TimePeriod != null)
+                    TimePeriod.PropertyChanged -= TimePeriod_PropertyChanged;
                 timePeriod = value;
                 OnPropertyChanged("TimePeriod");
+                TimePeriod.PropertyChanged += TimePeriod_PropertyChanged;
             }
+        }
+
+        private void TimePeriod_PropertyChanged(object sender, PropertyChangedEventArgs e) {
+            OnPropertyChanged("TimePeriod");
         }
 
         public string Note {
@@ -51,7 +58,7 @@ namespace ConworldBuilder.Model.Languages {
             Properties = new ObservableCollection<WordTypeProperty>();
             Name = "New Word Type";
             Note = "No notes.";
-            TimePeriod = new TimeInterval();
+            TimePeriod = new TimeInterval(new TimePoint(13),new TimePoint(14));
         }
 
         public void OnPropertyChanged(string name) {
