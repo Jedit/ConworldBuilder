@@ -37,11 +37,25 @@ namespace ConworldBuilder.Visualization.Languages {
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e) {
-            
+
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e) {
             LangPager.GoBack();
+        }
+
+        private void DataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e) {
+            if (dgProperities.SelectedItem != null)
+                LangPager.GoTo(new WordTypeProperty(Type, (Model.Languages.WordTypeProperty)dgProperities.SelectedItem));
+        }
+
+        private void BtnAddProperty_Click(object sender, RoutedEventArgs e) {
+            Type.Properties.Add(new Model.Languages.WordTypeProperty(Type.TimePeriod));
+        }
+
+        private void BtnRemoveProperty_Click(object sender, RoutedEventArgs e) {
+            if (dgProperities.SelectedItem != null)
+                Type.Properties.Remove((Model.Languages.WordTypeProperty)dgProperities.SelectedItem);
         }
     }
 }

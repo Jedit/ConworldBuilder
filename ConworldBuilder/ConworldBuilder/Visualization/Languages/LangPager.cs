@@ -26,5 +26,10 @@ namespace ConworldBuilder.Visualization.Languages {
             Page p = (index >= 0) ? history[index] : null;
             MainWindow.pageMain.Content = p;
         }
+
+        internal static void Reset() {
+            MainWindow.pageMain.Content = null;
+            history = new List<Page>();
+        }
     }
 }

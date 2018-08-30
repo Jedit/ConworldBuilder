@@ -9,35 +9,48 @@
       Title="WordTypes">
     <Grid>
         <Border Background="Silver" Height="30" Width="430" VerticalAlignment="Top" Margin="0,1" BorderThickness="2" BorderBrush="DarkGray" CornerRadius="3">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <StackPanel.Resources>
-                    <Style TargetType="Button">
-                        <Setter Property="Width" Value="26"/>
-                        <Setter Property="Margin" Value="2"/>
-                    </Style>
-                </StackPanel.Resources>
-                <Button x:Name="btnAdd" Click="BtnAdd_Click">+</Button>
-                <Button x:Name="btnEdit" Click="BtnEdit_Click">E</Button>
-                <Button x:Name="btnRemove" Click="BtnRemove_Click">-</Button>
-            </StackPanel>
+            <Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Margin" Value="2"/>
+                            <Setter Property="FontSize" Value="15"/>
+                            <Setter Property="FontWeight" Value="DemiBold"/>
+                            <Setter Property="FontStyle" Value="Italic"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <TextBlock>Word Types</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <StackPanel.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Width" Value="26"/>
+                            <Setter Property="Margin" Value="2"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <Button x:Name="btnAdd" Click="BtnAdd_Click">+</Button>
+                    <!--<Button x:Name="btnEdit" Click="BtnEdit_Click">E</Button>-->
+                    <Button x:Name="btnRemove" Click="BtnRemove_Click">-</Button>
+                </StackPanel>
+            </Grid>
         </Border>
         <DataGrid x:Name="dgMain" Margin="0,34,0,0" AutoGenerateColumns="False" VirtualizingPanel.ScrollUnit="Pixel" RowHeaderWidth="0" CanUserAddRows="False">
             <DataGrid.Columns>
-                <DataGridTemplateColumn Header="Word Type" Width="*" MinWidth="113">
+                <DataGridTemplateColumn Header="Word Type" Width="*" MinWidth="113" IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Path=Name, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Notes" Width="3*">
+                <DataGridTemplateColumn Header="Notes" Width="3*" IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Path=Note, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Time Period" Width="*" MinWidth="150">
+                <DataGridTemplateColumn Header="Time Period" Width="*" MinWidth="150" IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Path=TimePeriod, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
@@ -45,6 +58,11 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" Handler="DataGridRow_MouseDoubleClick"/>
+                </Style>
+            </DataGrid.Resources>
         </DataGrid>
     </Grid>
 </Page>

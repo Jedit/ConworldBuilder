@@ -1,0 +1,62 @@
+﻿<Window
+        x:Class="ConworldBuilder.Visualization.Conworld.ConworldMainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConworldBuilder.Visualization.Conworld"
+        mc:Ignorable="d"
+        Title="ConworldMainWindow" Height="570" Width="800" WindowStartupLocation="Manual" Top="50" Left="280" Closing="Window_Closing">
+    <Grid>
+        <Border Background="Silver" Height="30" Width="430" VerticalAlignment="Top" Margin="0,10,0,1" BorderThickness="2" BorderBrush="DarkGray" CornerRadius="3">
+            <Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Margin" Value="2"/>
+                            <Setter Property="FontSize" Value="15"/>
+                            <Setter Property="FontWeight" Value="DemiBold"/>
+                            <Setter Property="FontStyle" Value="Italic"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <TextBlock x:Name="tblTypeTitle" Text="{Binding Path=Name, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock xml:space="preserve"> Conworld properties</TextBlock>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <Border Background="LightGray" Margin="20,50,20,20" BorderThickness="2" BorderBrush="DarkGray" CornerRadius="6">
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="85"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.Resources>
+                    <Style TargetType="Label">
+                        <Setter Property="HorizontalContentAlignment" Value="Right"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="Margin" Value="4"/>
+                    </Style>
+                    <Style TargetType="TextBox">
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="Margin" Value="4"/>
+                    </Style>
+                    <Style TargetType="Grid">
+                        <Setter Property="Margin" Value="4"/>
+                    </Style>
+                    <Style TargetType="DataGrid">
+                        <Setter Property="Margin" Value="4"/>
+                    </Style>
+                </Grid.Resources>
+                <Label Grid.Column="0" Grid.Row="0">Name:</Label>
+                <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

@@ -24,13 +24,13 @@ namespace ConworldBuilder.Visualization.Timeline {
         }
 
         private void Beggining_Click(object sender, RoutedEventArgs e) {
-            txbDate.Text = TimePoint.PAST.Day.ToString();
-            txbTime.Text = TimePoint.PAST.Time.ToString();
+            txbDate.Text = TimePoint.Beginning.Day.ToString();
+            txbTime.Text = TimePoint.Beginning.Time.ToString();
         }
 
         private void Forever_Click(object sender, RoutedEventArgs e) {
-            txbDate.Text = TimePoint.FUTURE.Day.ToString();
-            txbTime.Text = TimePoint.FUTURE.Time.ToString();
+            txbDate.Text = TimePoint.Forever.Day.ToString();
+            txbTime.Text = TimePoint.Forever.Time.ToString();
         }
     }
 }

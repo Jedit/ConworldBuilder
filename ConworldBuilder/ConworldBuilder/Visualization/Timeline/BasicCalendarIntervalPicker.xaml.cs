@@ -24,20 +24,20 @@ namespace ConworldBuilder.Visualization.Timeline {
         }
 
         private void Beggining_Click(object sender, RoutedEventArgs e) {
-            txbDateF.Text = TimePoint.PAST.Day.ToString();
-            txbTimeF.Text = TimePoint.PAST.Time.ToString();
+            txbDateF.Text = TimePoint.Beginning.Day.ToString();
+            txbTimeF.Text = TimePoint.Beginning.Time.ToString();
         }
 
         private void AllTime_Click(object sender, RoutedEventArgs e) {
-            txbDateF.Text = TimePoint.PAST.Day.ToString();
-            txbTimeF.Text = TimePoint.PAST.Time.ToString();
-            txbDateT.Text = TimePoint.FUTURE.Day.ToString();
-            txbTimeT.Text = TimePoint.FUTURE.Time.ToString();
+            txbDateF.Text = TimePoint.Beginning.Day.ToString();
+            txbTimeF.Text = TimePoint.Beginning.Time.ToString();
+            txbDateT.Text = TimePoint.Forever.Day.ToString();
+            txbTimeT.Text = TimePoint.Forever.Time.ToString();
         }
 
         private void Forever_Click(object sender, RoutedEventArgs e) {
-            txbDateT.Text = TimePoint.FUTURE.Day.ToString();
-            txbTimeT.Text = TimePoint.FUTURE.Time.ToString();
+            txbDateT.Text = TimePoint.Forever.Day.ToString();
+            txbTimeT.Text = TimePoint.Forever.Time.ToString();
         }
     }
 }

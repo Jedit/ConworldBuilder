@@ -58,7 +58,7 @@ namespace ConworldBuilder.Model.Languages {
             Properties = new ObservableCollection<WordTypeProperty>();
             Name = "New Word Type";
             Note = "No notes.";
-            TimePeriod = new TimeInterval(new TimePoint(13),new TimePoint(14));
+            TimePeriod = new TimeInterval();
         }
 
         public void OnPropertyChanged(string name) {

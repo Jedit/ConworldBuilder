@@ -7,14 +7,26 @@ using System.Threading.Tasks;
 
 namespace ConworldBuilder.Model.Timeline {
     class TimePoint : INotifyPropertyChanged {
-        public static readonly TimePoint FUTURE = new TimePoint {
+        /*public static readonly TimePoint FUTURE = new TimePoint {
             Day = long.MaxValue,
             Time = int.MaxValue
         };
         public static readonly TimePoint PAST = new TimePoint {
             Day = long.MinValue,
             Time = int.MinValue
-        };
+        };*/
+
+        public static TimePoint Beginning {
+            get {
+                return new TimePoint(long.MinValue, int.MinValue);
+            }
+        }
+
+        public static TimePoint Forever {
+            get {
+                return new TimePoint(long.MaxValue, int.MaxValue);
+            }
+        }
 
         protected long day;
         protected int time;
@@ -47,9 +59,9 @@ namespace ConworldBuilder.Model.Timeline {
         }
 
         public override string ToString() {
-            if (this.Day == PAST.Day && this.Time == PAST.Time)
+            if (this.Day == Beginning.Day && this.Time == Beginning.Time)
                 return "Beginning";
-            if (this.Day == FUTURE.Day && this.Time == FUTURE.Time)
+            if (this.Day == Forever.Day && this.Time == Forever.Time)
                 return "Forever";
             return Day.ToString() + ":" + Time.ToString();
         }

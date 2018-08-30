@@ -4,9 +4,56 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ConworldBuilder"
+        xmlns:modelGeneral="clr-namespace:ConworldBuilder.Model.General"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Conworld Builder" Height="450" Width="auto" SizeToContent="Width"
+        WindowStartupLocation="Manual" Left="10" Top="50" Closing="Window_Closing">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="220"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Margin" Value="10,6,10,0"/>
+        </Style>
+    </Window.Resources>
+    <Grid Width="240">
+        <StackPanel Width="240" HorizontalAlignment="Left" Background="LightGray">
+            <Rectangle Height="70" Width="220" Fill="Maroon" Margin="0,10,0,0"/>
+            <Border Background="Silver" Margin="40,-13,40,0" BorderBrush="DarkGray" BorderThickness="1" CornerRadius="3">
+                <TextBox HorizontalContentAlignment="Center" Margin="2" Text="{Binding Path=ActiveWorld.Name, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                         IsReadOnly="True"/>
+            </Border>
+            <Border Margin="10,5,10,8" CornerRadius="3" Background="Silver" BorderBrush="DarkGray" BorderThickness="1">
+                <StackPanel Orientation="Horizontal" Height="32" HorizontalAlignment="Center">
+                    <StackPanel.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Width" Value="28"/>
+                            <Setter Property="Margin" Value="2"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <Button x:Name="btnNewWorld" Click="BtnNewWorld_Click">N</Button>
+                    <Button x:Name="btnOpenWorld" Click="BtnOpenWorld_Click">O</Button>
+                    <Button x:Name="btnCloseWorld" Click="BtnCloseWorld_Click"
+                            IsEnabled="{Binding Path=IsActiveWorld, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">C</Button>
+                    <Button x:Name="btnSaveWorld"
+                            IsEnabled="{Binding Path=IsActiveWorld, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">S</Button>
+                    <Button x:Name="btnSaveAsWorld" Click="btnSaveAsWorld_Click"
+                            IsEnabled="{Binding Path=IsActiveWorld, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">Sx</Button>
+                    <Button x:Name="btnSettings"
+                            IsEnabled="{Binding Path=IsActiveWorld, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">Set</Button>
+                </StackPanel>
+            </Border>
+            <Button x:Name="btnConworldInfo" Click="BtnConworldInfo_Click"
+                            IsEnabled="{Binding Path=IsActiveWorld, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">Conworld Info</Button>
+            <Button
+                            IsEnabled="{Binding Path=IsActiveWorld, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">Timeline</Button>
+            <Button
+                            IsEnabled="{Binding Path=IsActiveWorld, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">Maps</Button>
+            <Button
+                            IsEnabled="{Binding Path=IsActiveWorld, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">Elements (Towns, Nations, Animals, ...)</Button>
+            <Button x:Name="btnConlangs" Click="BtnConlangs_Click"
+                            IsEnabled="{Binding Path=IsActiveWorld, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">Conlangs</Button>
+        </StackPanel>
     </Grid>
 </Window>

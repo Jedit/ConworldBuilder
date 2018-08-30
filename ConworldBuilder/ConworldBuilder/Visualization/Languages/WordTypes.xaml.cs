@@ -1,4 +1,5 @@
-﻿using ConworldBuilder.Model.Languages;
+﻿using ConworldBuilder.Model.General;
+using ConworldBuilder.Model.Languages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,16 +21,16 @@ namespace ConworldBuilder.Visualization.Languages {
     public partial class WordTypes : Page {
         public WordTypes() {
             InitializeComponent();
-            dgMain.ItemsSource = Model.Languages.Language.Active.WordTypes;
+            dgMain.ItemsSource = Program.I.ActiveConlang.WordTypes;
         }
 
         private void BtnAdd_Click(object sender, System.Windows.RoutedEventArgs e) {
-            Model.Languages.Language.Active.WordTypes.Add(new Model.Languages.WordType());
+            Program.I.ActiveConlang.WordTypes.Add(new Model.Languages.WordType());
         }
 
         private void BtnRemove_Click(object sender, System.Windows.RoutedEventArgs e) {
             if (dgMain.SelectedItem != null) {
-                Model.Languages.Language.Active.WordTypes.Remove((Model.Languages.WordType)dgMain.SelectedItem);
+                Program.I.ActiveConlang.WordTypes.Remove((Model.Languages.WordType)dgMain.SelectedItem);
             }
         }
 
@@ -37,6 +38,11 @@ namespace ConworldBuilder.Visualization.Languages {
             if (dgMain.SelectedItem == null)
                 return;
             LangPager.GoTo(new WordType((Model.Languages.WordType)dgMain.SelectedItem));
+        }
+
+        private void DataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e) {
+            DataGridRow row = (DataGridRow)sender;
+            LangPager.GoTo(new WordType((Model.Languages.WordType)row.DataContext));
         }
     }
 }

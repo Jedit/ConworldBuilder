@@ -1,25 +1,33 @@
 ﻿using ConworldBuilder.Model.Languages;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ConworldBuilder.Model.General {
-    class World {
-        private static World activeWorld;
+    [JsonObject(MemberSerialization.OptIn)]
+    class World : INotifyPropertyChanged {
+        private string name;
 
-        public static World Active {
+        [JsonProperty("name")]
+        public string Name {
             get {
-                if(activeWorld == null) {
-                    activeWorld = new World();
-                }
-                return activeWorld;
+                return name;
+            }
+            set {
+                name = value;
+                OnPropertyChanged("Name");
             }
         }
 
+        [JsonProperty("languages")]
         public ObservableCollection<Language> Languages { get; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         private World() {
             Languages = new ObservableCollection<Language>();
@@ -30,6 +38,18 @@ namespace ConworldBuilder.Model.General {
                 return false;
             Languages.Add(language);
             return true;
+        }
+
+        public void OnPropertyChanged(string name) {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
+        public static World CreateNewWorld() {
+            World world = new World {
+                Name = "New Conworld"
+            };
+
+            return world;
         }
 
     }

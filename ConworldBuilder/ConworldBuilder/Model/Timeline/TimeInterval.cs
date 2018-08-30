@@ -62,8 +62,8 @@ namespace ConworldBuilder.Model.Timeline {
         }
 
         public TimeInterval(TimePoint start = null, TimePoint end = null, IntervalType type = IntervalType.InIn) {
-            Start = start ?? TimePoint.PAST;
-            End = end ?? TimePoint.FUTURE;
+            Start = start ?? TimePoint.Beginning;
+            End = end ?? TimePoint.Forever;
             Type = type;
         }
 

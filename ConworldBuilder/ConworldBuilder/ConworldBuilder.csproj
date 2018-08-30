@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -59,12 +62,28 @@
     <Compile Include="Model\Timeline\BasicCalendar.cs" />
     <Compile Include="Model\Timeline\ICalendarDatePicker.cs" />
     <Compile Include="Model\Timeline\ICalendarIntervalPicker.cs" />
+    <Compile Include="Visualization\Conworld\ConworldMainWindow.xaml.cs">
+      <DependentUpon>ConworldMainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visualization\General\IForceCloseableWindow.cs" />
+    <Compile Include="Visualization\General\TextInputDialog.xaml.cs">
+      <DependentUpon>TextInputDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visualization\Languages\General.xaml.cs">
+      <DependentUpon>General.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Visualization\Languages\LangPager.cs" />
     <Compile Include="Visualization\Languages\LanguageMainWindow.xaml.cs">
       <DependentUpon>LanguageMainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Visualization\Languages\OpenConlangDialog.xaml.cs">
+      <DependentUpon>OpenConlangDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Visualization\Languages\WordType.xaml.cs">
       <DependentUpon>WordType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visualization\Languages\WordTypeProperty.xaml.cs">
+      <DependentUpon>WordTypeProperty.xaml</DependentUpon>
     </Compile>
     <Compile Include="Visualization\Languages\WordTypes.xaml.cs">
       <DependentUpon>WordTypes.xaml</DependentUpon>
@@ -87,11 +106,31 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Visualization\Conworld\ConworldMainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visualization\General\TextInputDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visualization\Languages\General.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Visualization\Languages\LanguageMainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Visualization\Languages\OpenConlangDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Visualization\Languages\WordType.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visualization\Languages\WordTypeProperty.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -139,6 +178,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

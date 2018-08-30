@@ -16,5 +16,9 @@ namespace ConworldBuilder.Model.Languages {
                 text = value;
             }
         }
+
+        public override string ToString() {
+            return Value;
+        }
     }
 }
